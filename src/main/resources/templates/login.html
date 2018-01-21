@@ -3,44 +3,88 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" th:href="@{/css/login.css}"
-          href="../static/css/login.css" />
+          href="../static/css/login.css"/>
 </head>
-<body>
+<body style="background-color: #DDDDDD">
 
-<h1 align="center">SMARTNOTES PROJECT</h1>
+<!-- HEADER AREA-->
+<div id="header" style="margin: auto; width:70%; background-color: #39CCCC;">
+    <p th:align="center" style="color:#091834; font-size:30px; font-weight: bold">SmartNotes</p>
+    <button onclick="document.getElementById('id01').style.display='block'"
+            style="width:200px;height:50px;font-size:medium">Login
+    </button>
+    <button onclick="document.getElementById('id02').style.display='block'"
+            style="width:200px; height:50px;font-size:medium">Register
+    </button>
+</div>
+<!-- LOGIN BUTTONS AREA -->
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-
+<!--MODAL WINDOWS-->
 <div id="id01" class="modal">
-
-    <form class="modal-content animate" action="/welcome">
+    <form class="modal-content animate" action="/auth">
         <div class="imgcontainer">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                          title="Close Modal">&times;</span>
         </div>
         <div class="container">
-            <label><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="login" required="" value="${login}"/>
+            <p th:align="center"><b>Login</b></p>
+            <label><b>Login</b></label>
+            <input type="text" placeholder="Enter login" name="login" required=""/>
             <label><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" required=""/>
+            <input type="password" placeholder="Enter password" name="password" required=""/>
 
             <button type="submit">Login</button>
         </div>
 
         <div class="container" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                    class="cancelbtn">
                 Cancel
             </button>
         </div>
     </form>
 </div>
+
+<div id="id02" class="modal">
+    <form class="modal-content animate" action="/auth">
+        <div class="imgcontainer">
+                    <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                          title="Close Modal">&times;</span>
+        </div>
+        <div class="container">
+            <p th:align="center"><b>Registration</b></p>
+            <label><b>Full name</b></label>
+            <input type="text" placeholder="Enter Username" name="login" required=""/>
+            <label><b>Email</b></label>
+            <input type="text" placeholder="Enter Username" name="email" required=""/>
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required=""/>
+            <label><b>Repeat Password</b></label>
+            <input type="password" placeholder="Enter Password" name="rpassword" required=""/>
+            <button type="submit">Register</button>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                    class="cancelbtn">
+                Cancel
+            </button>
+        </div>
+    </form>
+</div>
+
 <script>
     // Get the modal
-    var modal = document.getElementById('id01');
+    var loginmodal = document.getElementById('id01');
+    var registermodal = document.getElementById('id02');
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+        if (event.target == loginmodal) {
+            loginmodal.style.display = "none";
+        }
+        if (event.target == registermodal) {
+            registermodal.style.display = "none";
         }
     }
 </script>

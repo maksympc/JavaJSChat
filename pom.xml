@@ -7,9 +7,9 @@
 
     <artifactId>spring-boot-web-thymeleaf</artifactId>
     <packaging>jar</packaging>
-    <name>Spring Boot Web Thymeleaf Example</name>
-    <description>Spring Boot Web Thymeleaf Example</description>
-    <url>https://www.mkyong.com</url>
+    <name>SmartNotes</name>
+    <description>This is a SmartNotes project</description>
+    <url>https://maksympc.herokuapp.com/</url>
     <version>1.0</version>
 
     <parent>
